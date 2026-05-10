@@ -9,17 +9,20 @@ Value MTU (\d+|Unlimited)
 
 Start
   ^\s*\S+\s+[Ii]nterface -> Continue.Record
-  ^Physical\s+interface:\s+${INTERFACE},\s+${ADMIN_STATE},\s+Physical\s+link\s+is\s+${LINK_STATUS}
+  ^Physical\s+interface:\s+${INTERFACE},\s+(Administratively\s)?${ADMIN_STATE},\s+Physical\s+link\s+is\s+${LINK_STATUS}
   ^\s+Interface index:
   ^\s+Description:\s+${DESCRIPTION}$$
+  ^\s+Speed
   # match "Type: xx, Link-level type:" and "  Link-level type:"
   ^.*\s+Link-level\s+type:\s+${HARDWARE_TYPE},\s+MTU:\s+${MTU}(,.+)?$$
+  ^\s+Source filtering
   ^\s+Pad to minimum frame size:
   ^\s+Link-mode
   ^\s+MAC-REWRITE
   ^\s+Flow control
   ^\s+Device [Ff]lags
   ^\s+Interface flags
+  ^\s+Link type
   ^\s+Link flags
   ^\s+Physical info
   ^\s+CoS queues
@@ -31,6 +34,8 @@ Start
   ^\s+Active alarms
   ^\s+Active defects
   ^\s+PCS statistics
+  ^\s+Ethernet FEC statistics
+  ^\s+FEC
   ^\s+Bit errors
   ^\s+Errored blocks
   ^\s+Interface transmit statistics
